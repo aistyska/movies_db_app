@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Simple Sidebar - Start Bootstrap Template</title>
+    <title>Filmų duomenų bazė</title>
 
     <!-- Bootstrap core CSS -->
     <link href="templates/main/css/bootstrap.min.css" rel="stylesheet">
@@ -37,6 +37,7 @@
     <div id="page-content-wrapper">
 
         <?php require 'templates/main/_partials/header.php';?>
+
         <div class="container-fluid">
             <?php
                 require $_SERVER["DOCUMENT_ROOT"]."/router.php";
