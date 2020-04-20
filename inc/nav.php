@@ -2,9 +2,18 @@
 
 $navigation = [
     "side" => [
-        "all_movies" => ["fa-film", "Visi filmai"],
-        "by_category" => ["fa-ticket-alt", "Filmai pagal žanrą"],
-        "search" => ["fa-search", "Paieška"]
+        "all_movies" => [
+            "icon" => "fa-film",
+            "title" => "Visi filmai"
+        ],
+        "by_category" => [
+            "icon" => "fa-ticket-alt",
+            "title" => "Filmai pagal žanrą"
+        ],
+        "search" => [
+            "icon" => "fa-search",
+            "title" => "Paieška"
+        ]
     ],
     "top" => [
         "home" => "Pagrindinis",

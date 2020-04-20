@@ -1,6 +1,6 @@
 <?php
 
-    switch ($_GET['p'] ?? null) {
+    switch (htmlspecialchars($_GET['p'] ?? "home")) {
         case 'home':
             include "templates/".ACTIVE_TEMPLATE."/pages/home.php";
             break;
@@ -38,5 +38,5 @@
             include "templates/".ACTIVE_TEMPLATE."/pages/delete_category.php";
             break;
         default:
-            include "templates/".ACTIVE_TEMPLATE."/pages/home.php";
+            include "templates/".ACTIVE_TEMPLATE."/pages/error.php";
     }

@@ -3,9 +3,8 @@
     <div class="list-group list-group-flush">
 
         <?php
-        require 'inc/nav.php';
         foreach ($navigation['side'] as $link => $title) :?>
-        <a href="?p=<?=$link;?>" class="list-group-item list-group-item-action bg-light"><i class="fas <?=$title[0]?>"></i> <?=$title[1]?></a>
+        <a href="?p=<?=$link;?>" class="list-group-item list-group-item-action bg-light"><i class="fas <?=$title['icon']?>"></i> <?=$title['title']?></a>
         <?php endforeach;?>
 
     </div>
