@@ -1,5 +1,5 @@
 <div class="bg-light border-right" id="sidebar-wrapper">
-    <div class="sidebar-heading">Filmų duomenų bazė</div>
+    <div class="sidebar-heading"><?=SITE_TITLE?></div>
     <div class="list-group list-group-flush">
 
         <?php

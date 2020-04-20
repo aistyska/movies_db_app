@@ -2,4 +2,4 @@
 
 <!--<h3 class="d-inline-block">Filmų duomenų bazės aplikacija</h3>-->
 
-<?php require 'templates/main/_partials/main_nav.php';
+<?php require 'templates/'.ACTIVE_TEMPLATE.'/_partials/main_nav.php';
