@@ -2,12 +2,12 @@
 
 $navigation = [
     "side" => [
-        "all_movies" => "<i class=\"fas fa-film\"></i> Visi filmai",
-        "by_category" => "<i class=\"fas fa-ticket-alt\"></i> Filmai pagal žanrą",
-        "search" => "<i class=\"fas fa-search\"></i> Paieška"
+        "all_movies" => ["fa-film", "Visi filmai"],
+        "by_category" => ["fa-ticket-alt", "Filmai pagal žanrą"],
+        "search" => ["fa-search", "Paieška"]
     ],
     "top" => [
-        "home" => "<i class=\"fas fa-home\"></i> Pagrindinis",
+        "home" => "Pagrindinis",
         "login" => "Prisijungti",
         "Veiksmai" => [
             "categories_control" => "Kategorijų valdymas",

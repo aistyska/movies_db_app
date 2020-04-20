@@ -28,13 +28,19 @@
                     </div>
                 </li>
 
-            <?php else:?>
+                <?php elseif ($link == "home") :?>
 
-            <li class="nav-item">
-                <a class="nav-link" href="?p=<?=$link;?>"><?=$title;?></a>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="?p=<?=$link;?>"><i class="fas fa-home"></i> <?=$title;?></a>
+                </li>
 
-            <?php endif;
+                <?php else:?>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="?p=<?=$link;?>"><?=$title;?></a>
+                </li>
+
+                <?php endif;
             }?>
 
         </ul>
