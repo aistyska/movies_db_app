@@ -2,7 +2,7 @@
 
 <p>Pasirinkite norimą filmų žanrą</p>
 
-<form class="form-inline">
+<form method="get" class="form-inline">
     <div class="input-group my-3 mr-2">
         <div class="input-group-prepend">
             <label class="input-group-text" for="selectCategory">Žanras</label>
