@@ -13,13 +13,15 @@
             </tr>
         </thead>
         <tbody>
+        <?php foreach (getAllCategories() as $categories):?>
             <tr>
-                <th scope="row">1</th>
-                <td>Veiksmo</td>
+                <th scope="row"><?= $categories['id'] ?></th>
+                <td><?= $categories['category'] ?></td>
                 <td>
                     <button type="button" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i> Šalinti</button> <button type="button" class="btn btn-info btn-sm"><i class="fas fa-edit"></i> Redaguoti</button>
                 </td>
             </tr>
+        <?php endforeach;?>
         </tbody>
     </table>
 </div>
