@@ -15,15 +15,17 @@
             </tr>
         </thead>
         <tbody>
+        <?php foreach (getAllMovies() as $movie):?>
             <tr>
-                <th scope="row">1</th>
-                <td>Spectre</td>
-                <td>James Bond</td>
-                <td>2015</td>
-                <td>Kazkas</td>
-                <td>8.9</td>
-                <td>Veiksmo</td>
+                <th scope="row"><?=$movie['id']?></th>
+                <td><?=$movie['title']?></td>
+                <td><?=$movie['about']?></td>
+                <td><?=$movie['year']?></td>
+                <td><?=$movie['director']?></td>
+                <td><?=$movie['imdb']?></td>
+                <td><?=$movie['category']?></td>
             </tr>
+        <?php endforeach;?>
         </tbody>
     </table>
 </div>
