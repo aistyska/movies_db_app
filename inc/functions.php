@@ -13,7 +13,6 @@ function connectDB() {
 
 function createCategory($cat_name) {
     $connection = connectDB();
-
     try {
         if ($connection) {
             $query = "INSERT INTO categories (category) VALUES (:genre)";
@@ -22,11 +21,9 @@ function createCategory($cat_name) {
             $statement->execute();
             header('Location:?p=categories_control');
         }
-
     } catch (PDOException $e) {
         echo 'Create category query failed: ' . $e->getMessage();
     }
-
     $connection = null;  // close a connection
 }
 
@@ -45,7 +42,6 @@ function getAllCategories() {
     } catch (PDOException $e) {
         echo $e->getMessage();
     }
-
     $connection = null;
     return $results;
 }
@@ -70,9 +66,25 @@ function getCategory($cat_name){
 }
 
 
+function deleteCategory($id) {
+    $connection = connectDB();
+    try {
+        if ($connection) {
+            $query = "DELETE FROM categories WHERE id = :cat_id";
+            $statement = $connection->prepare($query);
+            $statement->bindParam(':cat_id', $id, PDO::PARAM_INT);
+            $statement->execute();
+            header('Location:?p=categories_control');
+        }
+    } catch (PDOException $e) {
+        echo 'Delete category query failed: ' . $e->getMessage();
+    }
+    $connection = null;
+}
+
+
 function createMovie($movie) {
     $connection = connectDB();
-
     try {
         if ($connection) {
             $query = "INSERT into movies (title, about, year, director, imdb, cat_id) VALUES (:title, :about, :year, :director, :imdb, :cat_id)";
@@ -84,12 +96,11 @@ function createMovie($movie) {
             $statement->bindParam(':imdb', $movie['imdb'], PDO::PARAM_STR);
             $statement->bindParam(':cat_id', $movie['cat_id'], PDO::PARAM_INT);
             $statement->execute();
-            header('Location:?p=all_movies');
+            header('Location:?p=movies_control');
         }
     } catch (PDOException $e) {
         echo 'Create movie query failed: ' . $e->getMessage();
     }
-
     $connection = null;
 }
 
@@ -112,7 +123,7 @@ function getAllMovies() {
 }
 
 
-function getMovie($movie_title) {
+function getMovieByTitle($movie_title) {
     $connection = connectDB();
     $result = [];
     try {
@@ -128,6 +139,68 @@ function getMovie($movie_title) {
     }
     $connection = null;
     return $result;
+}
+
+
+function getMovieById($movie_id) {
+    $connection = connectDB();
+    $result = [];
+    try {
+        if ($connection) {
+            $query = "SELECT movies.id, title, about, year, director, imdb, categories.category
+                FROM movies
+                JOIN categories ON movies.cat_id = categories.id
+                WHERE movies.id = :id";
+            $statement = $connection->prepare($query);
+            $statement->bindParam(':id', $movie_id, PDO::PARAM_INT);
+            $statement->execute();
+            $result = $statement->fetch();
+        }
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+    }
+    $connection = null;
+    return $result;
+}
+
+
+function updateMovie($movie) {
+    $connection = connectDB();
+    try {
+        if ($connection) {
+            $query = "UPDATE movies SET title = :title, about = :about, year = :year, director = :director, imdb = :imdb, cat_id = :cat_id WHERE id = :id";
+            $statement = $connection->prepare($query);
+            $statement->bindParam(':title', $movie['title'], PDO::PARAM_STR);
+            $statement->bindParam(':about', $movie['about'], PDO::PARAM_STR);
+            $statement->bindParam(':year', $movie['year'], PDO::PARAM_INT);
+            $statement->bindParam(':director', $movie['director'], PDO::PARAM_STR);
+            $statement->bindParam(':imdb', $movie['imdb'], PDO::PARAM_STR);
+            $statement->bindParam(':cat_id', $movie['cat_id'], PDO::PARAM_INT);
+            $statement->bindParam(':id', $movie['id'], PDO::PARAM_INT);
+            $statement->execute();
+            header('Location:?p=movies_control');
+        }
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+    }
+    $connection = null;
+}
+
+
+function deleteMovie($movie_id) {
+    $connection = connectDB();
+    try {
+        if($connection){
+            $query = "DELETE FROM movies WHERE id = :id";
+            $statement = $connection->prepare($query);
+            $statement->bindParam(':id', $movie_id, PDO::PARAM_INT);
+            $statement->execute();
+            header('Location:?p=movies_control');
+        }
+    } catch (PDOException $e) {
+        echo 'Delete movie query failed: ' . $e->getMessage();
+    }
+    $connection = null;
 }
 
 

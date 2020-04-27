@@ -1,5 +1,5 @@
 <h2 class="mt-4">Kategorijų valdymas</h2>
-<p>Pridėkite, redaguokite ar šalinkite filmų kategorijas/žanrus</p>
+<p>Pridėkite ar šalinkite filmų kategorijas/žanrus</p>
 
 <a class="btn btn-success mb-3" href="?p=add_category" role="button"><i class="fas fa-plus"></i> Pridėti kategoriją</a>
 
@@ -18,7 +18,7 @@
                 <th scope="row"><?= $categories['id'] ?></th>
                 <td><?= $categories['category'] ?></td>
                 <td>
-                    <button type="button" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i> Šalinti</button> <button type="button" class="btn btn-info btn-sm"><i class="fas fa-edit"></i> Redaguoti</button>
+                    <a class="btn btn-danger btn-sm" href="?p=delete_category&id=<?=$categories['id']?>" role="button"><i class="fas fa-trash-alt"></i> Šalinti</a>
                 </td>
             </tr>
         <?php endforeach;?>

@@ -13,7 +13,7 @@ if (isset($_POST['add_movie']) && !empty(validateAddMovieForm())) {
     <?php
     endforeach;
 } elseif (isset($_POST['add_movie']) && empty(validateAddMovieForm())) {
-    if (empty(getMovie(htmlspecialchars($_POST['title'])))) {
+    if (empty(getMovieByTitle(htmlspecialchars($_POST['title'])))) {
         $movie = [
             'title' => ucwords(htmlspecialchars($_POST['title'])),
             'about' => htmlspecialchars($_POST['about']),
@@ -69,6 +69,6 @@ if (isset($_POST['add_movie']) && !empty(validateAddMovieForm())) {
         <textarea class="form-control" id="about" name="about" rows="3" placeholder="Parašykite, apie ką šis filmas..."><?=htmlspecialchars($_POST['about'] ?? '')?></textarea>
     </div>
     <button type="submit" name="add_movie" class="btn btn-success mb-3 mb-sm-0"><i class="fas fa-plus"></i> Pridėti filmą</button>
-    <a class="btn btn-danger mb-3 mb-sm-0" href="?p=all_movies" role="button"><i class="fas fa-ban"></i> Atšaukti</a>
+    <a class="btn btn-danger mb-3 mb-sm-0" href="?p=movies_control" role="button"><i class="fas fa-ban"></i> Atšaukti</a>
 </form>
 

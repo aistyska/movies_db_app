@@ -1,5 +1,5 @@
 <h2 class="mt-4">Visi filmai</h2>
-<p>Cia bus lentele su visais filmais ir ju informacija</p>
+<p>Informacija apie visus saugomus filmus</p>
 
 <div class="table-responsive">
     <table class="table table-hover">
