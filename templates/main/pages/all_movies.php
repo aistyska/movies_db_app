@@ -5,7 +5,6 @@
     <table class="table table-hover">
         <thead class="thead-light">
             <tr>
-                <th scope="col">Filmo ID</th>
                 <th scope="col">Pavadinimas</th>
                 <th scope="col">Aprašymas</th>
                 <th scope="col">Išleidimo metai</th>
@@ -17,8 +16,7 @@
         <tbody>
         <?php foreach (getAllMovies() as $movie):?>
             <tr>
-                <th scope="row"><?=$movie['id']?></th>
-                <td><?=$movie['title']?></td>
+                <th scope="row"><?=$movie['title']?></th>
                 <td><?=$movie['about']?></td>
                 <td><?=$movie['year']?></td>
                 <td><?=$movie['director']?></td>

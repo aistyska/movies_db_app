@@ -128,7 +128,10 @@ function getMovieByTitle($movie_title) {
     $result = [];
     try {
         if ($connection) {
-            $query = "SELECT * FROM movies WHERE title = :title";
+            $query = "SELECT movies.*, categories.category 
+                        FROM movies 
+                        JOIN categories ON movies.cat_id = categories.id 
+                        WHERE title = :title";
             $statement = $connection->prepare($query);
             $statement->bindParam(':title', $movie_title, PDO::PARAM_STR);
             $statement->execute();
@@ -155,6 +158,28 @@ function getMovieById($movie_id) {
             $statement->bindParam(':id', $movie_id, PDO::PARAM_INT);
             $statement->execute();
             $result = $statement->fetch();
+        }
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+    }
+    $connection = null;
+    return $result;
+}
+
+
+function getMoviesByCategory($cat_id) {
+    $connection = connectDB();
+    $result = [];
+    try {
+        if ($connection) {
+            $query = "SELECT movies.id, title, about, year, director, imdb, categories.category
+                FROM movies
+                JOIN categories ON movies.cat_id = categories.id
+                WHERE movies.cat_id = :id";
+            $statement = $connection->prepare($query);
+            $statement->bindParam(':id', $cat_id, PDO::PARAM_INT);
+            $statement->execute();
+            $result = $statement->fetchAll();
         }
     } catch (PDOException $e) {
         echo $e->getMessage();
