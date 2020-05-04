@@ -1,3 +1,7 @@
+<?php
+require 'inc/session.php';
+?>
+
 <h2 class="mt-4">Filmo redagavimas</h2>
 
 <?php

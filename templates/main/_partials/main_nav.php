@@ -13,18 +13,21 @@
 
                 if ($link == "Veiksmai"):?>
 
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <?=$link;?>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    <?php
+                    if (isset($_SESSION['username']) && $_SESSION['username'] == "admin") { ?>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <?=$link;?>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
-                        <?php foreach ($title as $action => $name) :?>
-                        <a class="dropdown-item" href="?p=<?=$action;?>"><?=$name;?></a>
-                        <?php endforeach;?>
+                            <?php foreach ($title as $action => $name) :?>
+                            <a class="dropdown-item" href="?p=<?=$action;?>"><?=$name;?></a>
+                            <?php endforeach;?>
 
-                    </div>
-                </li>
+                        </div>
+                    </li>
+                    <?php }?>
 
                 <?php elseif ($link == "home") :?>
 

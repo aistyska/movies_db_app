@@ -1,3 +1,7 @@
+<?php
+require 'inc/session.php';
+?>
+
 <h2 class="mt-4">Filmų valdymas</h2>
 <p>Pridėkite, redaguokite ar šalinkite filmus</p>
 

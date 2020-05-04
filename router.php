@@ -28,6 +28,9 @@
         case 'login':
             include "templates/".ACTIVE_TEMPLATE."/pages/login.php";
             break;
+        case 'logout':
+            include "templates/".ACTIVE_TEMPLATE."/pages/logout.php";
+            break;
         case 'categories_control':
             include "templates/".ACTIVE_TEMPLATE."/pages/categories_control.php";
             break;

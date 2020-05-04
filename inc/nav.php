@@ -22,7 +22,7 @@ $navigation = [
             "categories_control" => "Kategorijų valdymas",
             "movies_control" => "Filmų valdymas",
             "add_movie" => "Pridėti filmą",
-            "Atsijungti"
+            "logout" => "Atsijungti"
         ]
     ]
 ];

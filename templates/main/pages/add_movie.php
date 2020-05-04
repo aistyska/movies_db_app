@@ -1,3 +1,7 @@
+<?php
+require 'inc/session.php';
+?>
+
 <h2 class="mt-4">Filmo pridėjimas</h2>
 <p>Šiame puslapyje galite išsaugoti informaciją apie filmą</p>
 
@@ -26,7 +30,7 @@ if (isset($_POST['add_movie']) && !empty(validateAddMovieForm())) {
     } else { ?>
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
             Toks filmas jau yra duomenų bazėje
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>

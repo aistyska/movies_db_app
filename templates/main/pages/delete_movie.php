@@ -1,4 +1,5 @@
 <?php
+require 'inc/session.php';
 
 if (isset($_GET['id'])) {
     if (isset($_GET['delete']) && $_GET['delete'] == "yes") {
